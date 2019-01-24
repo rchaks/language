@@ -1,0 +1,9 @@
+name: gl-nq
+channels:
+  - defaults
+  - pytorch
+  - conda-forge
+dependencies:
+- python=3.6
+- absl-py 
+- tensorflow
