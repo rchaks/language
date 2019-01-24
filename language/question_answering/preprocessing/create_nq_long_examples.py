@@ -100,7 +100,7 @@ def _create_long_answer_examples(input_path):
   output_basename = input_basename.replace(".jsonl.gz", ".long.tfr")
   output_path = os.path.join(FLAGS.output_dir, output_basename)
   tf.logging.info("Converting examples in %s to tf.Examples.", input_path)
-  with GzipFile(fileobj=tf.gfile.GFile(input_path)) as input_file:
+  with GzipFile(input_path) as input_file:
     with tf.python_io.TFRecordWriter(output_path) as writer:
       for i, tf_example in enumerate(_generate_tf_examples(input_file)):
         writer.write(tf_example.SerializeToString())
